@@ -17,7 +17,8 @@ body {
 }
 
 header{
-  height: 80px;
+  height: 100px;
+  
 }
 
 nav{
@@ -35,19 +36,36 @@ nav{
 
 .options-navbar{
   margin-left: 100px;
-  background-color: red;
-  width: 430px;
+  box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.15);
+  width: 460px;
   height: 48px;
   border-radius: 25px;
   display: flex;
   align-items: center;
   flex-direction: row;
-
+  justify-content: space-between;
 
   & ul{
     list-style-type: none;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+    
+    padding: 10px;
   }
+
 }
+
+.options-text{
+  font-size: 14px;
+  font-weight: 500;
+}
+
+
+
+
 
 .image-navbar{
   width: 48px;
@@ -57,9 +75,35 @@ nav{
   flex-basis: 30%;
   display: flex;
   justify-content: space-between;
+
+  & p{
+    font-size: 14px;
+    font-weight: 500;
+  }
 }
 
 .header-icons{
   display: flex;
   gap: 20px
+}
+
+.buscar{
+  background-color: #FF385C;
+  height: 35px;
+  width: 35px;
+  border-radius: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 0 0 10px;
+}
+
+hr{
+  width: 100vw;
+  position: absolute;
+  left: 0;
+  border: none;
+  height: 1px;
+  background-color: #ebebeb;
+  
 }
