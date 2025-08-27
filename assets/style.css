@@ -24,6 +24,7 @@ body {
   max-width: 1120px;
   margin: 0 auto;
   letter-spacing: 0.5px;
+  overflow-x: hidden;
 }
 
 header {
@@ -178,7 +179,7 @@ h2 {
   & .main-gallery-image {
     border-radius: 15px 0px 0px 15px;
     width: 560px;
-    height: 395px;
+    height: 397px;
     cursor: pointer;
   }
 
@@ -417,7 +418,7 @@ h2 {
 .room-description-resume {
   margin: 30px 0px;
   display: flex;
-  gap: 35px;
+  gap: 30px;
   flex-direction: column;
 
   & .room-description-resume-item {
@@ -443,4 +444,18 @@ h2 {
     margin-top: 30px;
     width: 600px;
   }
+}
+
+.room-description-line {
+  & hr {
+    width: 600px;
+  }
+}
+
+.room-description {
+  margin-top: 30px;
+  width: 600px;
+  display: flex;
+  gap: 25px;
+  flex-direction: column;
 }
