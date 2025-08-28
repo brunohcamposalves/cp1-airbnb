@@ -526,3 +526,34 @@ h2 {
     }
   }
 }
+
+.room-rules-section {
+  width: 100%;
+  display: flex;
+  position: relative;
+  flex-direction: column;
+
+  & .room-rules-line {
+    & hr {
+      width: 100%;
+    }
+  }
+
+  & h2 {
+    margin-top: 40px;
+  }
+}
+
+.room-rules-items {
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-between;
+
+  .room-rules-item {
+    margin: 20px 0px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 350px;
+  }
+}
