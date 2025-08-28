@@ -173,47 +173,57 @@ h2 {
 }
 
 .room-gallery {
-  display: flex;
+  display: grid;
   gap: 10px;
+  grid-template-areas:
+    "image1 image1 image2 image3"
+    "image1 image1 image4 image5";
 
   & .main-gallery-image {
     border-radius: 15px 0px 0px 15px;
-    width: 560px;
-    height: 397px;
+
     cursor: pointer;
   }
 
   & .main-gallery-image:hover {
     filter: brightness(0.8);
   }
-}
-
-.mini-room-gallery {
-  & .mini-gallery-image {
-    width: 272px;
-    height: 197px;
-    cursor: pointer;
-  }
 
   & .mini-gallery-image:hover {
     filter: brightness(0.9);
   }
 
-  & .mini-gallery-image:nth-child(1) {
-    padding-bottom: 5px;
-    padding-right: 5px;
+  & img:nth-child(1) {
+    grid-area: image1;
+    width: 100%;
+    height: 100%;
   }
 
-  & .mini-gallery-image:nth-child(2) {
+  & img:nth-child(2) {
+    grid-area: image2;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+  }
+  & img:nth-child(3) {
+    grid-area: image3;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
     border-radius: 0px 15px 0px 0px;
-    padding-bottom: 5px;
+  }
+  & img:nth-child(4) {
+    grid-area: image4;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
   }
 
-  & .mini-gallery-image:nth-child(3) {
-    padding-right: 5px;
-  }
-
-  & .mini-gallery-image:nth-child(4) {
+  & img:nth-child(5) {
+    grid-area: image5;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
     border-radius: 0px 0px 15px 0px;
   }
 }
