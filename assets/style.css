@@ -6,6 +6,9 @@
   --color-primary: #ff385c;
   --color-white: #ffffff;
   --color-shadow: rgba(0, 0, 0, 0.15);
+  --color-dark: #222222;
+  --color-gray: #959595;
+  --color-light-gray: #6a6a6a;
 }
 
 * {
@@ -181,7 +184,6 @@ h2 {
 
   & .main-gallery-image {
     border-radius: 15px 0px 0px 15px;
-
     cursor: pointer;
   }
 
@@ -242,7 +244,7 @@ h2 {
 
   & span {
     font-size: 15px;
-    color: #222222;
+    color: var(--color-dark);
   }
 }
 
@@ -308,7 +310,7 @@ h2 {
   & .room-full-price {
     text-decoration: line-through;
     font-size: 20px;
-    color: #959595;
+    color: var(--color-gray);
   }
 
   & .room-discount-price {
@@ -318,7 +320,7 @@ h2 {
   }
 
   & .room-price-days {
-    color: #959595;
+    color: var(--color-gray);
     font-size: 15px;
   }
 
@@ -332,7 +334,7 @@ h2 {
       flex-direction: column;
       gap: 5px;
       flex-basis: 50%;
-      border: 1px solid #d8d8d8;
+      border: 1px solid var(--color-border);
       padding: 10px;
 
       & p {
@@ -360,7 +362,7 @@ h2 {
       flex-direction: column;
       flex-grow: 1;
       gap: 5px;
-      border: 1px solid #d8d8d8;
+      border: 1px solid var(--color-border);
       border-top: none;
       padding: 10px;
       border-radius: 0px 0px 10px 10px;
@@ -379,13 +381,13 @@ h2 {
 
   & .room-reservation-button {
     cursor: pointer;
-    background-color: #fd375b;
+    background-color: var(--color-primary);
     width: 100%;
     margin-top: 15px;
     height: 35px;
     border-radius: 100px;
     padding: 20px 0px;
-    color: white;
+    color: var(--color-white);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -421,7 +423,7 @@ h2 {
 
   & span {
     font-size: 13px;
-    color: #6a6a6a;
+    color: var(--color-light-gray);
   }
 }
 
@@ -446,7 +448,7 @@ h2 {
 
     & span {
       font-size: 13px;
-      color: #6a6a6a;
+      color: var(--color-light-gray);
     }
   }
 
