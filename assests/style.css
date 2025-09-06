@@ -102,8 +102,7 @@ h1 {
 }
 
 .cardPlayer:hover {
-  transform: scale(1.05); 
-  box-shadow: 0 1rem 2rem rgba(0,0,0,0.15);
+  transform: scale(1.02);
 }
 
 .playerImage {
@@ -164,13 +163,52 @@ h1 {
   }
 }
 
+.buttonDelete {
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  position: absolute;
+  font-size: 20px;
+  color: #dc3545;
+  bottom: 35px;
+  left: 115px;
+}
+
+.buttonFavorite {
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  position: absolute;
+  font-size: 28px;
+  top: 12px;
+  right: 20px;
+  color: #FFD700;
+}
+
 .buttonEdit {
   border: none;
   background: transparent;
   cursor: pointer;
   position: absolute;
-  z-index: 9;
   margin-left: 5px;
+}
+
+.buttonEditImagePlayer {
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  position: absolute;
+  left: 60px;
+  top: 170px;
+}
+
+.buttonEditPlayerTeam {
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  position: absolute;
+  left: 70px;
+  top: 70px;
 }
 
 .cardInfo {

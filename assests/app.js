@@ -1,4 +1,4 @@
-const PLAYERS = [
+let players = [
   {
     nome: "Marta",
     posicao: "ATA",
@@ -83,8 +83,11 @@ const addPlayer = () => {
     favorita: false,
   };
 
-  PLAYERS.unshift(player);
+  players.unshift(player);
   playerForm.reset();
+  savePlayers();
+
+  document.querySelector("#playerForm").reset();
   listPlayers();
 
   alert("Jogadora criada com sucesso!");
@@ -95,13 +98,20 @@ const listPlayers = () => {
   const playersList = document.querySelector(".playersList");
   playersList.innerHTML = " ";
 
-  PLAYERS.forEach((jogadora, index) => {
+  players.forEach((jogadora, index) => {
     const cardPlayers = document.createElement("div");
     cardPlayers.classList.add("cardPlayer");
 
     cardPlayers.innerHTML = `
     <div class="playerInfo"> 
-        <img src="${jogadora.foto}" class="playerImage" alt="foto da jogadora"> 
+        
+          <img src="${
+            jogadora.foto
+          }" class="playerImage" alt="foto da jogadora"> 
+          <button class="buttonEditImagePlayer" data-section="imagem" data-action="edit" data-index="${index}">
+              <i class="fa-solid fa-pen-to-square"></i>
+          </button>  
+        
         <p class="playerPosition">
          ${jogadora.posicao} 
          <button class="buttonEdit" data-section="posicao" data-action="edit" data-index="${index}">
@@ -109,6 +119,9 @@ const listPlayers = () => {
           </button>  
          </p>
         <img src="${jogadora.clube}" class="playerTeam" alt="logo do clube">
+        <button class="buttonEditPlayerTeam" data-section="clube" data-action="edit" data-index="${index}">
+            <i class="fa-solid fa-pen-to-square"></i>
+          </button>  
         <p class="playerName">
           ${jogadora.nome.toUpperCase()} 
           <button class="buttonEdit" data-section="nome" data-action="edit" data-index="${index}">
@@ -133,6 +146,16 @@ const listPlayers = () => {
           </button>  
         </p>
     </div>
+    <button id="delete" class="buttonDelete" data-action="delete" data-index="${index}"> 
+      <i class="fa-solid fa-trash"></i>
+    </button>
+    <button id="favorite" class="buttonFavorite" data-action="favorite" data-index="${index}">
+     ${
+       jogadora.favorita
+         ? `<i class="fa-solid fa-star"></i>`
+         : `<i class="fa-regular fa-star"></i>`
+     }
+    </button>
     `;
 
     playersList.append(cardPlayers);
@@ -145,80 +168,95 @@ const editPlayer = (index, section) => {
 
   switch (section) {
     case "clube":
-      novoCampo = prompt("Editar Clube:", PLAYERS[index].clube);
+      novoCampo = prompt("Editar Clube:", players[index].clube);
       if (novoCampo !== null) {
-        PLAYERS[index].clube = novoCampo;
+        players[index].clube = novoCampo;
+        savePlayers();
         listPlayers();
+        alert(
+          `Clube da jogadora "${players[index].nome}" atualizado com sucesso para "${novoCampo}"!`
+        );
       }
-      alert(
-        `Clube da jogadora "${PLAYERS[index].nome}" atualizado com sucesso para "${novoCampo}"!`
-      );
+
       break;
 
     case "jogos":
-      novoCampo = prompt("Editar Jogos:", PLAYERS[index].jogos);
+      novoCampo = prompt("Editar Jogos:", players[index].jogos);
       if (novoCampo !== null) {
-        PLAYERS[index].jogos = novoCampo;
+        players[index].jogos = novoCampo;
+        savePlayers();
         listPlayers();
+        alert(
+          `Jogos da jogadora "${players[index].nome}" atualizados com sucesso para "${novoCampo}"!`
+        );
       }
-      alert(
-        `Jogos da jogadora "${PLAYERS[index].nome}" atualizados com sucesso para "${novoCampo}"!`
-      );
+
       break;
 
     case "nome":
-      novoCampo = prompt("Editar Nome:", PLAYERS[index].nome);
+      novoCampo = prompt("Editar Nome:", players[index].nome);
       if (novoCampo !== null) {
-        PLAYERS[index].nome = novoCampo;
+        players[index].nome = novoCampo;
+        savePlayers();
         listPlayers();
+        alert(`Nome atualizado com sucesso para "${novoCampo}"!`);
       }
-      alert(`Nome atualizado com sucesso para "${novoCampo}"!`);
 
       break;
 
     case "posicao":
-      novoCampo = prompt("Editar Posição:", PLAYERS[index].posicao);
+      novoCampo = prompt("Editar Posição:", players[index].posicao);
       if (novoCampo !== null) {
-        PLAYERS[index].posicao = novoCampo;
+        players[index].posicao = novoCampo;
+        savePlayers();
         listPlayers();
+        alert(
+          `Posição atualizada da jogadora "${players[index].nome}" com sucesso para "${novoCampo}"!`
+        );
       }
-      alert(`Posição atualizada da jogadora "${PLAYERS[index].nome}" com sucesso para "${novoCampo}"!`);
 
       break;
 
     case "assistencias":
       novoCampo = prompt(
         "Editar N° de Asistencias:",
-        PLAYERS[index].assistencias
+        players[index].assistencias
       );
       if (novoCampo !== null) {
-        PLAYERS[index].assistencias = novoCampo;
+        players[index].assistencias = novoCampo;
+        savePlayers();
         listPlayers();
+        alert(
+          `Assistências da jogadora "${players[index].nome}" atualizadas com sucesso para "${novoCampo}"!`
+        );
       }
-      alert(
-        `Assistências da jogadora "${PLAYERS[index].nome}" atualizadas com sucesso para "${novoCampo}"!`
-      );
 
       break;
 
     case "gols":
-      novoCampo = prompt("Editar N° de gols:", PLAYERS[index].gols);
+      novoCampo = prompt("Editar N° de gols:", players[index].gols);
       if (novoCampo !== null) {
-        PLAYERS[index].gols = novoCampo;
+        players[index].gols = novoCampo;
+        savePlayers();
         listPlayers();
+        alert(
+          `Gols da jogadora "${players[index].nome}" atualizados com sucesso para "${novoCampo}"!`
+        );
       }
-      alert(
-        `Gols da jogadora "${PLAYERS[index].nome}" atualizados com sucesso para "${novoCampo}"!`
-      );
+
       break;
 
-    case "image":
-      novoCampo = prompt("Editar imagem(url):", PLAYERS[index].foto);
+    case "imagem":
+      novoCampo = prompt("Editar imagem(url):", players[index].foto);
       if (novoCampo !== null) {
-        PLAYERS[index].foto = novoCampo;
+        players[index].foto = novoCampo;
+        savePlayers();
         listPlayers();
+        alert(
+          `Imagem da jogadora "${players[index].nome}" atualizada com sucesso!`
+        );
       }
-      alert("Imagem atualizada com sucesso!");
+
       break;
 
     default:
@@ -232,7 +270,8 @@ const deletePlayer = (index) => {
   const confirm = window.confirm("Tem certeza que deseja apagar este post?");
 
   if (confirm) {
-    PLAYERS.splice(index, 1);
+    players.splice(index, 1);
+    savePlayers();
     listPlayers();
   }
 };
@@ -250,10 +289,31 @@ const handleCardClick = (event) => {
     editPlayer(index, section);
   } else if (action === "delete") {
     deletePlayer(index);
+  } else if (action === "favorite") {
+    favoritePlayer(index);
+  }
+};
+
+const favoritePlayer = (index) => {
+  players[index].favorita = !players[index].favorita;
+  savePlayers();
+  listPlayers();
+};
+
+const savePlayers = () => {
+  localStorage.setItem("players", JSON.stringify(players));
+};
+
+const loadPlayers = () => {
+  const storedPlayers = localStorage.getItem("players");
+
+  if (storedPlayers) {
+    players = JSON.parse(storedPlayers);
   }
 };
 
 window.onload = () => {
+  loadPlayers();
   listPlayers();
 
   document
