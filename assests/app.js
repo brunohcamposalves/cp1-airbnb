@@ -103,59 +103,119 @@ const listPlayers = () => {
     cardPlayers.classList.add("cardPlayer");
 
     cardPlayers.innerHTML = `
-    <div class="playerInfo"> 
-        
-          <img src="${
-            jogadora.foto
-          }" class="playerImage" alt="foto da jogadora"> 
-          <button class="buttonEditImagePlayer" data-section="imagem" data-action="edit" data-index="${index}">
-              <i class="fa-solid fa-pen-to-square"></i>
-          </button>  
-        
+      <div class="playerInfo"> 
+        <img 
+          src="${jogadora.foto}" 
+          class="playerImage" 
+          alt="foto da jogadora"
+        > 
+        <button 
+          class="buttonEditImagePlayer" 
+          data-section="imagem" 
+          data-action="edit" 
+          data-index="${index}"
+        >
+          <i class="fa-solid fa-pen-to-square"></i>
+        </button>  
+
         <p class="playerPosition">
-         ${jogadora.posicao} 
-         <button class="buttonEdit" data-section="posicao" data-action="edit" data-index="${index}">
+          ${jogadora.posicao} 
+          <button 
+            class="buttonEdit" 
+            data-section="posicao" 
+            data-action="edit" 
+            data-index="${index}"
+          >
             <i class="fa-solid fa-pen-to-square"></i>
           </button>  
-         </p>
-        <img src="${jogadora.clube}" class="playerTeam" alt="logo do clube">
-        <button class="buttonEditPlayerTeam" data-section="clube" data-action="edit" data-index="${index}">
-            <i class="fa-solid fa-pen-to-square"></i>
-          </button>  
+        </p>
+
+        <img 
+          src="${jogadora.clube}" 
+          class="playerTeam" 
+          alt="logo do clube"
+        >
+        <button 
+          class="buttonEditPlayerTeam" 
+          data-section="clube" 
+          data-action="edit" 
+          data-index="${index}"
+        >
+          <i class="fa-solid fa-pen-to-square"></i>
+        </button>  
+
         <p class="playerName">
           ${jogadora.nome.toUpperCase()} 
-          <button class="buttonEdit" data-section="nome" data-action="edit" data-index="${index}">
-              <i class="fa-solid fa-pen-to-square"></i>
-            </button> 
+          <button 
+            class="buttonEdit" 
+            data-section="nome" 
+            data-action="edit" 
+            data-index="${index}"
+          >
+            <i class="fa-solid fa-pen-to-square"></i>
+          </button> 
         </p>
-    </div>
-    <div class="playerStatistics">
-        <p> <strong> Jogos: </strong> ${jogadora.jogos}  
-         <button class="buttonEdit" data-section="jogos" data-action="edit" data-index="${index}">
+      </div>
+
+      <div class="playerStatistics">
+        <p>
+          <strong> Jogos: </strong> ${jogadora.jogos}  
+          <button 
+            class="buttonEdit" 
+            data-section="jogos" 
+            data-action="edit" 
+            data-index="${index}"
+          >
             <i class="fa-solid fa-pen-to-square"></i>
           </button>  
         </p>
-        <p> <strong> Gols: </strong> ${jogadora.gols} 
-         <button class="buttonEdit" data-section="gols" data-action="edit" data-index="${index}">
+
+        <p>
+          <strong> Gols: </strong> ${jogadora.gols} 
+          <button 
+            class="buttonEdit" 
+            data-section="gols" 
+            data-action="edit" 
+            data-index="${index}"
+          >
             <i class="fa-solid fa-pen-to-square"></i>
           </button>   
         </p>
-        <p> <strong> Assis.: </strong> ${jogadora.assistencias}  
-          <button class="buttonEdit" data-section="assistencias" data-action="edit" data-index="${index}">
+
+        <p>
+          <strong> Assis.: </strong> ${jogadora.assistencias}  
+          <button 
+            class="buttonEdit" 
+            data-section="assistencias" 
+            data-action="edit" 
+            data-index="${index}"
+          >
             <i class="fa-solid fa-pen-to-square"></i>
           </button>  
         </p>
-    </div>
-    <button id="delete" class="buttonDelete" data-action="delete" data-index="${index}"> 
-      <i class="fa-solid fa-trash"></i>
-    </button>
-    <button id="favorite" class="buttonFavorite" data-action="favorite" data-index="${index}">
-     ${
-       jogadora.favorita
-         ? `<i class="fa-solid fa-star"></i>`
-         : `<i class="fa-regular fa-star"></i>`
-     }
-    </button>
+      </div>
+
+      <button 
+        id="delete" 
+        class="buttonDelete" 
+        data-action="delete" 
+        data-index="${index}"
+      > 
+        <i class="fa-solid fa-trash"></i>
+      </button>
+
+      <button 
+        id="favorite" 
+        class="buttonFavorite" 
+        data-action="favorite" 
+        data-index="${index}"
+      >
+        ${
+          jogadora.favorita
+            ? `<i class="fa-solid fa-star"></i>`
+            : `<i class="fa-regular fa-star"></i>`
+        }
+      </button>
     `;
 
     playersList.append(cardPlayers);
@@ -270,6 +330,7 @@ const deletePlayer = (index) => {
   const confirm = window.confirm("Tem certeza que deseja apagar este post?");
 
   if (confirm) {
+    alert(`Jogadora "${players[index].nome}" deletada com sucesso!`);
     players.splice(index, 1);
     savePlayers();
     listPlayers();
