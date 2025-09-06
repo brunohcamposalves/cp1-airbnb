@@ -2,7 +2,8 @@ const PLAYERS = [
   {
     nome: "Marta",
     posicao: "ATA",
-    clube: "https://upload.wikimedia.org/wikipedia/pt/c/c0/OrlandoCity_SC_logo.png",
+    clube:
+      "https://upload.wikimedia.org/wikipedia/pt/c/c0/OrlandoCity_SC_logo.png",
     foto: "https://static.wefut.com/assets/images/fut24/playeravatars/custom/50558538.png",
     gols: 15,
     assistencias: 10,
@@ -12,7 +13,8 @@ const PLAYERS = [
   {
     nome: "Aitana Bonmatí",
     posicao: "MEI",
-    clube: "https://upload.wikimedia.org/wikipedia/pt/thumb/4/43/FCBarcelona.svg/2020px-FCBarcelona.svg.png",
+    clube:
+      "https://upload.wikimedia.org/wikipedia/pt/thumb/4/43/FCBarcelona.svg/2020px-FCBarcelona.svg.png",
     foto: "https://cdn.futwiz.com/assets/img/fc24/faces/117682179.png",
     gols: 5,
     assistencias: 12,
@@ -22,7 +24,8 @@ const PLAYERS = [
   {
     nome: "Alex Morgan",
     posicao: "ATA",
-    clube: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgDIEuby3BvZue9cwVBi7WtEI6dbuHAPwQpSvXI7WkwfgzT56zudBeLGDdUjz9UCN7-es5C4Za2DZZzj7BH1_huKeFYd-f1AUncyy4CR2HZorzqZr_-wiktWik3whKX97PKIwBzvycdKLk/s1600/1646909251708930-0.png",
+    clube:
+      "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgDIEuby3BvZue9cwVBi7WtEI6dbuHAPwQpSvXI7WkwfgzT56zudBeLGDdUjz9UCN7-es5C4Za2DZZzj7BH1_huKeFYd-f1AUncyy4CR2HZorzqZr_-wiktWik3whKX97PKIwBzvycdKLk/s1600/1646909251708930-0.png",
     foto: "https://cdn3.futbin.com/content/fifa24/img/players/p134444029.png?fm=png&ixlib=java-2.1.0&w=224&s=5a3a3079c8cfb7a03037583931df64cb",
     gols: 2,
     assistencias: 1,
@@ -42,7 +45,8 @@ const PLAYERS = [
   {
     nome: "Alex Greenwood",
     posicao: "LE",
-    clube: "https://upload.wikimedia.org/wikipedia/en/thumb/8/8b/England_national_football_team_crest.svg/250px-England_national_football_team_crest.svg.png",
+    clube:
+      "https://upload.wikimedia.org/wikipedia/en/thumb/8/8b/England_national_football_team_crest.svg/250px-England_national_football_team_crest.svg.png",
     foto: "https://cdn3.futbin.com/content/fifa24/img/players/p50558902.png?fm=png&ixlib=java-2.1.0&w=224&s=ed308190da7122c0952a310ed97fa3bc",
     gols: 0,
     assistencias: 0,
@@ -97,9 +101,14 @@ const listPlayers = () => {
 
     cardPlayers.innerHTML = `
     <div class="playerInfo"> 
-        <img src="${jogadora.foto}" class="playerImage"> 
-        <p class="playerPosition"> ${jogadora.posicao} </p>
-        <img src="${jogadora.clube}" class="playerTeam">
+        <img src="${jogadora.foto}" class="playerImage" alt="foto da jogadora"> 
+        <p class="playerPosition">
+         ${jogadora.posicao} 
+         <button class="buttonEdit" data-section="posicao" data-action="edit" data-index="${index}">
+            <i class="fa-solid fa-pen-to-square"></i>
+          </button>  
+         </p>
+        <img src="${jogadora.clube}" class="playerTeam" alt="logo do clube">
         <p class="playerName">
           ${jogadora.nome.toUpperCase()} 
           <button class="buttonEdit" data-section="nome" data-action="edit" data-index="${index}">
@@ -141,14 +150,20 @@ const editPlayer = (index, section) => {
         PLAYERS[index].clube = novoCampo;
         listPlayers();
       }
+      alert(
+        `Clube da jogadora "${PLAYERS[index].nome}" atualizado com sucesso para "${novoCampo}"!`
+      );
       break;
-    
-     case "jogos":
+
+    case "jogos":
       novoCampo = prompt("Editar Jogos:", PLAYERS[index].jogos);
       if (novoCampo !== null) {
         PLAYERS[index].jogos = novoCampo;
         listPlayers();
       }
+      alert(
+        `Jogos da jogadora "${PLAYERS[index].nome}" atualizados com sucesso para "${novoCampo}"!`
+      );
       break;
 
     case "nome":
@@ -157,6 +172,7 @@ const editPlayer = (index, section) => {
         PLAYERS[index].nome = novoCampo;
         listPlayers();
       }
+      alert(`Nome atualizado com sucesso para "${novoCampo}"!`);
 
       break;
 
@@ -166,6 +182,7 @@ const editPlayer = (index, section) => {
         PLAYERS[index].posicao = novoCampo;
         listPlayers();
       }
+      alert(`Posição atualizada da jogadora "${PLAYERS[index].nome}" com sucesso para "${novoCampo}"!`);
 
       break;
 
@@ -178,6 +195,9 @@ const editPlayer = (index, section) => {
         PLAYERS[index].assistencias = novoCampo;
         listPlayers();
       }
+      alert(
+        `Assistências da jogadora "${PLAYERS[index].nome}" atualizadas com sucesso para "${novoCampo}"!`
+      );
 
       break;
 
@@ -187,7 +207,9 @@ const editPlayer = (index, section) => {
         PLAYERS[index].gols = novoCampo;
         listPlayers();
       }
-
+      alert(
+        `Gols da jogadora "${PLAYERS[index].nome}" atualizados com sucesso para "${novoCampo}"!`
+      );
       break;
 
     case "image":
@@ -196,13 +218,12 @@ const editPlayer = (index, section) => {
         PLAYERS[index].foto = novoCampo;
         listPlayers();
       }
+      alert("Imagem atualizada com sucesso!");
       break;
 
     default:
       alert("Erro");
       break;
-
-      alert("Campo atualizado com sucesso!");
   }
 };
 

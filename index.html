@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>CRUD</title>
+    <title>CP1 - WebDev - CRUD</title>
     <link rel="stylesheet" href="./assests/style.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -11,65 +11,72 @@
       href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap"
       rel="stylesheet"
     />
+    <link rel="shortcut icon" href="https://cdn-icons-png.freepik.com/256/732/732193.png" type="image/x-icon">
   </head>
 
   <body>
     <main>
-      <form id="playerForm">
-        <label>Nome da Jogadora</label><br />
-        <input
-          id="namePlayer"
-          type="text"
-          placeholder="Insira o nome da Jogadora aqui"
-          required
-        /><br />
-        <label>Posição</label><br />
-        <input
-          id="playerPostion"
-          type="text"
-          placeholder="Insira a posição da jogadora aqui"
-          required
-        /><br />
-        <label>Imagem do Clube</label><br />
-        <input
-          id="playerTeam"
-          type="text"
-          placeholder="Insira a url da imagem do Clube"
-          required
-        /><br />
-        <label>Imagem da Jogadora</label><br />
-        <input
-          id="playerPicture"
-          type="text"
-          placeholder="Insira a url da imagem aqui"
-          required
-        /><br />
-        <label>Qnt. Jogos</label><br />
-        <input
-          id="playerGames"
-          type="number"
-          placeholder="Insira o numero de Jogos"
-          required
-        /><br />
-        <label>Qnt. Gols</label><br />
-        <input
-          id="playerGoals"
-          type="number"
-          placeholder="Insira o numero de gols da jogadora"
-          required
-        /><br />
-        <label>Qnt. Assistências</label><br />
-        <input
-          id="playerAssists"
-          type="number"
-          placeholder="Insira o numero de Assistencias da Jogadora"
-          required
-        /><br />
+      <section classe="registerPlayerSection">
+        <img src="https://pngimg.com/d/fifa_PNG11.png" alt="logo fifa" class="logo-fifa" />
+        <h1>Cadastro de Jogadoras</h1>
+        <form id="playerForm">
+          <label for="namePlayer">Nome da Jogadora</label>
+          <input
+            id="namePlayer"
+            type="text"
+            placeholder="Digite o nome da jogadora"
+            required
+          />
+          <label for="playerPosition">Posição</label>
+          <input
+            id="playerPostion"
+            type="text"
+            placeholder="Digite a posição da jogadora (ATA, MEI, ZAG, GOL, LE, LD, PD, PE)"
+            required
+          />
+          <label for="playerTeam">Imagem do Clube</label>
+          <input
+            id="playerTeam"
+            type="text"
+            placeholder="Insira a url da imagem do clube"
+            required
+          />
+          <label for="playerPicture">Imagem da Jogadora</label>
+          <input
+            id="playerPicture"
+            type="text"
+            placeholder="Insira a url da imagem da jogadora"
+            required
+          />
+          <label for="playerGames">Qnt. Jogos</label>
+          <input
+            id="playerGames"
+            type="number"
+            placeholder="Insira o numero de jogos"
+            required
+          />
+          <label for="playerGoals">Qnt. Gols</label>
+          <input
+            id="playerGoals"
+            type="number"
+            placeholder="Insira o numero de gols"
+            required
+          />
+          <label for="playerAssists">Qnt. Assistências</label>
+          <input
+            id="playerAssists"
+            type="number"
+            placeholder="Insira o numero de assistências"
+            required
+          />
 
-        <button id="playerPost" type="submit">Enviar</button>
-      </form>
-
-      <div class="playersList"></div>
+          <button id="playerPost" type="submit">Enviar</button>
+        </form>
+      </section>
+      <section class="playersListSection">
+        <h1>Lista de Jogadoras</h1>
+        <div class="playersList"></div>
+      </section>
     </main>
   </body>
   <script src="assests/app.js"></script>
